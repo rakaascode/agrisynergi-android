@@ -11,7 +11,7 @@
 
 
     <application
-        android:name=".AgrySynergiApplication"
+        android:name=".AgrisynergyApplication"
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"
