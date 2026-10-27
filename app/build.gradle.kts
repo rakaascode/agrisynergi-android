@@ -16,7 +16,11 @@ plugins {
 
 
 val localProperties = File(rootProject.rootDir, "local.properties")
-val properties = Properties().apply { load(localProperties.inputStream()) }
+val properties = Properties().apply {
+    if (localProperties.exists()) {
+        load(localProperties.inputStream())
+    }
+}
 
 
 android {
@@ -29,7 +33,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "GEMINI_API_KEY", "\"${properties["GEMINI_API_KEY"]}\"")
+        buildConfigField("String", "GEMINI_API_KEY", "\"${properties["GEMINI_API_KEY"] ?: ""}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

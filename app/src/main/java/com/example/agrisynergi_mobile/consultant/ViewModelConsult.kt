@@ -21,8 +21,7 @@ class ChatViewModel : ViewModel() {
 
     private val generativeModel = GenerativeModel(
         modelName = "gemini-1.5-flash",
-        apiKey = "YOUR_GEMINI_API_KEY"
-//        apiKey = BuildConfig.GEMINI_API_KEY
+        apiKey = BuildConfig.GEMINI_API_KEY.ifEmpty { "YOUR_GEMINI_API_KEY" }
     )
 
     var gabungan: String = """ini adalah bagian penting prompt dasar "nama adalah
